@@ -22,25 +22,25 @@ int main()
         inf >> strInput;
         gameresult.append(strInput);
 
-        // Probably some better way to do this
+        // Probably some better way to do this. Suprisingly made part 2 easy
         if(gameresult == "AX")
-            sum += 4;
+            sum += 3;
         if(gameresult == "BX")
             sum += 1;
         if(gameresult == "CX")
-            sum += 7;
+            sum += 2;
         if(gameresult == "AY")
-            sum += 8;
+            sum += 4;
         if(gameresult == "BY")
             sum += 5;
         if(gameresult == "CY")
-            sum += 2;
+            sum += 6;
         if(gameresult == "AZ")
-            sum += 3;
+            sum += 8;
         if(gameresult == "BZ")
             sum += 9;
         if(gameresult == "CZ")
-            sum += 6;
+            sum += 7;
     }
 
     std::cout << sum;
