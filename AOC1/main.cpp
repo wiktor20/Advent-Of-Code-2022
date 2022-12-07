@@ -3,7 +3,9 @@
 
 int main()
 {
-    int max = 0;
+    int first = 0;
+    int second = 0;
+    int third = 0;
     int tempsum = 0;
     std::ifstream inf{"input.txt"};
 
@@ -24,12 +26,27 @@ int main()
 
         else
         {
-            if (tempsum > max)
-                max = tempsum;
+            if (tempsum >= first)
+            {
+                third = second;
+                second = first;
+                first = tempsum;
+                tempsum = 0;
+            }
+
+            else if (tempsum >= second)
+            {
+                third = second;
+                second = tempsum;
+                tempsum = 0;
+            }
+
+            else if (tempsum >= third)
+                third = tempsum;
             tempsum = 0;
         }
     }
 
-    std::cout << max;
+    std::cout << first + second + third;
     return 0;
 }
