@@ -1,12 +1,15 @@
 #include <fstream>
 #include <iostream>
+#include <map>
+
+
 
 int main()
 {
     int sum = 0;
     std::string gameresult;
     std::ifstream inf{"input.txt"};
-
+    std::map<std::string, int> my_map = {{ "AX", 3 },{ "BX", 1 },{ "CX", 2 },{ "AY", 4 },{ "BY", 5 },{ "CY", 6 },{ "AZ", 8 },{ "BZ", 9 },{ "CZ", 7 }};
     // If we couldn't open the output file stream for reading
     if (!inf)
     {
@@ -16,31 +19,13 @@ int main()
 
     while (inf)
     {
+        //Okay I learned what a MAP is
         std::string strInput;
         inf >> strInput;
         gameresult = strInput;
         inf >> strInput;
         gameresult.append(strInput);
-
-        // Probably some better way to do this. Suprisingly made part 2 easy
-        if(gameresult == "AX")
-            sum += 3;
-        if(gameresult == "BX")
-            sum += 1;
-        if(gameresult == "CX")
-            sum += 2;
-        if(gameresult == "AY")
-            sum += 4;
-        if(gameresult == "BY")
-            sum += 5;
-        if(gameresult == "CY")
-            sum += 6;
-        if(gameresult == "AZ")
-            sum += 8;
-        if(gameresult == "BZ")
-            sum += 9;
-        if(gameresult == "CZ")
-            sum += 7;
+        sum += my_map[gameresult];
     }
 
     std::cout << sum;
