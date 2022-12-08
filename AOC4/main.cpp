@@ -52,7 +52,7 @@ int main()
                 break;
             }
         }
-        if((su >= fu && sl <= fl) || (fu >= su && fl <= sl))
+        if((su >= fu && sl <= fu) || (su >= fl && sl <= fl) || (fu >= sl && fl <= sl) || (fu >= su && fl <= su))
             sum++;
 
         // std::cout << first << std::endl;
