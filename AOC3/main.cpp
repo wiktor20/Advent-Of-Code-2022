@@ -16,44 +16,39 @@ int main()
     while (inf)
     {
         char c;
-        bool flag = false;
-        std::string firsthalf, secondhalf;
-        std::getline(inf, firsthalf);
-
-        if (firsthalf.empty())
+        std::string first, second, third;
+        std::getline(inf, first);
+        std::getline(inf, second);
+        std::getline(inf, third);
+        //Expecting that we get an input file with lines divisible by 3
+        if (first.empty())
             break;
 
-        int size = firsthalf.size() / 2;
-        secondhalf.assign(firsthalf, size);
-        firsthalf.assign(firsthalf, 0, size);
-
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < first.size(); i++)
         {
-            for (int j = 0; j < size; j++)
+            for (int j = 0; j < second.size(); j++)
             {
-                if (firsthalf[i] == secondhalf[j])
+                if (first[i] == second[j])
                 {
-                    c = firsthalf[i];
-                    flag = true;
-                    break;
+                    for (int k = 0; k < third.size(); k++)
+                    {
+                        if (second[j] == third[k])
+                        {
+                            c = second[j];
+                            goto endloop;
+                        }
+                    }
                 }
             }
-            if (flag == true)
-                break;
         }
 
-        // std::cout << firsthalf << std::endl << secondhalf << std::endl << c << std::endl;
-
+endloop:
         if (c < 91)
-        {
             c -= 38;
-            sum += c;
-        }
         else
-        {
             c -= 96;
-            sum += c;
-        }
+
+        sum += c;
     }
 
     std::cout << sum;
