@@ -60,14 +60,26 @@ int main()
         inf >> strInput;
         tostack = stoi(strInput) - 1;
 
+        // for(int i = 0; i < quantity; i++){
+        //     std::cout << quantity << fromstack << tostack << std::endl;
+        //     char temp = stack[fromstack].top();
+        //     stack[tostack].push(temp);
+        //     stack[fromstack].pop();
+        // }
+
+        char pile[quantity];
         for(int i = 0; i < quantity; i++){
-            std::cout << quantity << fromstack << tostack << std::endl;
-            char temp = stack[fromstack].top();
-            stack[tostack].push(temp);
+            std::cout << stack[fromstack].top();
+            pile[i] = stack[fromstack].top();
             stack[fromstack].pop();
         }
+            std::cout << std::endl;
+        for(int i = 0; i < quantity; i++){
+            std::cout << pile[quantity-i-1]; 
+            stack[tostack].push(pile[quantity-i-1]);
+        }
+            std::cout << std::endl;
     }
-
 
 
     for(int i = 0; i < 9; i++){
